@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Creating Home Page" do
+RSpec.feature "Users Sign up" do
     
     scenario do
         visit '/'
