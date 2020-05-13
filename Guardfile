@@ -36,7 +36,7 @@ end
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-guard :rspec, cmd: "bin/rspec" do
+guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
@@ -47,9 +47,7 @@ guard :rspec, cmd: "bin/rspec" do
   watch(rspec.spec_helper) { rspec.spec_dir }
   watch(rspec.spec_support) { rspec.spec_dir }
   watch(rspec.spec_files)
-  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
-  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
-  watch(rails.routes)          { "#{rspec.spec_dir}" }
+  
 
   # Ruby files
   ruby = dsl.ruby
@@ -62,7 +60,7 @@ guard :rspec, cmd: "bin/rspec" do
 
   watch(rails.controllers) do |m|
     [
-      rspec.spec.call("routing/#{m[1]}_routing"),1
+      rspec.spec.call("routing/#{m[1]}_routing"),
       rspec.spec.call("controllers/#{m[1]}_controller"),
       rspec.spec.call("acceptance/#{m[1]}")
     ]
@@ -76,6 +74,9 @@ guard :rspec, cmd: "bin/rspec" do
   # Capybara features specs
   watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
+  watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
+  watch(rails.routes)          { "#{rspec.spec_dir}" }
 
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
