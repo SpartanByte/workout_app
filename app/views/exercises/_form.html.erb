@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-9 d-block m-auto">
+    <%= form_for :exercise, url: new_user_exercise_path do |f| %>
+    <div class="form-group">
+        <%= f.label :diration_in_min, "Page Title", class: "control-label" %>
+        <%= f.text_field :diration_in_min, required: true, class:"form-control"%>
+    </div>
+    <div class="form-group">
+        <%= f.label :workout, "Page Title", class: "control-label" %>
+        <%= f.text_field :workout, required: true, class:"form-control"%>
+    </div>
+    <div class="form-group">
+        <%= f.label :workout_date, "Workout Date", class: "control-label"%>
+        <%= f.date_select :workout_date, required: true, class:"form-control" %>
+    </div>
+        <%= f.submit "Create Exercise", class: "btn btn-primary w-25" %><br>
+        <%= link_to "Back", user_exercises_path(current_user), class:"btn btn-primary mt-2 w-25", id: "new-exer-btn" %>
+<%end%>
+    
+    </div>
+</div>
