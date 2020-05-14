@@ -44,6 +44,15 @@
     padding-top:10px;
 }
 
+// footer styling
+.footer{
+    position:fixed;
+    bottom: 0;
+    background: #363636;
+    color: #fff;
+    height:10vh;
+}
+
 // error message
 #error_explanation {
     background-color: #f2dede; 
