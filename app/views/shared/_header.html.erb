@@ -10,12 +10,6 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
@@ -25,10 +19,9 @@
                 <li><%= link_to "Sign up", new_user_registration_path %></li>      
                 <li><%= link_to "Sign in", new_user_session_path %></li>    
             <% else %>  
-                <div class="navbar-right">
-                    <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-                    <p class="navbar-text">Signed in as <%= current_user.email %></p>
-                </div>
+                <li><%= link_to "My Lounge", user_exercises_path(current_user) %></li>  
+                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                <li class="nav-text">Signed in as <%= current_user.email %></li>
             <% end %>
         </ul>
     </nav>

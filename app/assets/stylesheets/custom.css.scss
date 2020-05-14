@@ -1,8 +1,6 @@
 @import "bootstrap";
 
-// body {
-//     margin-top: 70px;
-// }
+$white: #fff;
 
 // Navbar styling
 .navbar {
@@ -42,6 +40,16 @@
 
 .navbar-brand{
     padding-top:10px;
+}
+.nav-text{
+    color: $white;
+}
+.navbar-right li{
+    margin-right: 10px;
+
+    :last-of-type{
+        margin-right:0px;
+    }
 }
 
 // footer styling
