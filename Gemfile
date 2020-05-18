@@ -49,6 +49,8 @@ group :development do
   gem 'rspec-rails', '~> 3.9'
   gem 'guard-bundler', '~> 2.2', '>= 2.2.1'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
