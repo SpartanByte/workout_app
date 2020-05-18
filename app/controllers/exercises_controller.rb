@@ -21,5 +21,5 @@ class ExercisesController < ApplicationController
         end
     end
 
-    def exercise_params(:exercise).permit(:diration_in_min)
+    def exercise_params(:exercise).permit(:duration_in_min)
 end
