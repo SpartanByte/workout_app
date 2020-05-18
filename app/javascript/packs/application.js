@@ -9,6 +9,7 @@ require("channels")
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require jquery-ui/datepicker
+//= require d3
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

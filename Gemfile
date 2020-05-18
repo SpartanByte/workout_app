@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'devise', '~> 4.2'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'd3-rails', '~> 4.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +49,8 @@ group :development do
   gem 'rspec-rails', '~> 3.9'
   gem 'guard-bundler', '~> 2.2', '>= 2.2.1'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
