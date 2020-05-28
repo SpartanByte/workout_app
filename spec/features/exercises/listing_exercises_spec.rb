@@ -4,17 +4,12 @@ RSpec.feature "Listing Exercises" do
     before do
         @john = User.create(first_name: "John", last_name: "Doe", email: "john@example.com", password: "password")
         login_as(@john)
+
+        @e1 = @john.exercises.create(duration_in_min: 20, workout: "My body building activity", workout_date: Date.today, user_id: @john.id)
+        @e2 = @john.exercises.create(duration_in_min: 55, workout: "Weight lifting",workout_date: 2.days.ago, user_id: @john.id)
+        @e3 = @john.exercises.create(duration_in_min: 35, workout: "Cardio", workout_date: 8.days.ago, user_id: @john.id)
     end
-    @john = User.first
 
-    @e1 = @john.exercises.create(duration_in_min: 20, workout: "My body building activity",
-                                    workout_date: Date.today)
-    
-    @e2 = @john.exercises.create(duration_in_min: 55, workout: "Weight lifting",
-        workout_date: 2.days.ago)
-
-    @e3 = @john.exercises.create(duration_in_min: 35, workout: "Cardio",
-        workout_date: 8.days.ago)
 
     scenario "show users workout for last 7 days" do
         visit '/'
@@ -35,7 +30,11 @@ RSpec.feature "Listing Exercises" do
     end
 
     scenario "shows no exercises if none exist" do
-       @john.exercises.delete_all
+       @john.exercises.count
+
+        @john.exercises.each do |ex|
+            ex.delete
+        end
        
        visit '/'
        click_link "My Lounge"
