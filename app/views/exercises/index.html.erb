@@ -1,7 +1,8 @@
 <div class="col-md-8 col-sx-12">
-    <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %>
+    <p><%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-success link" %></p>
 </div>
 <h1><%= current_user.full_name %>'s Exercises</h1>
+
 <% if user_signed_in? && current_user.exercises.count > 1 %>
     <% current_user.exercises.each do |ex| %>
         <p><%= ex.duration_in_min %> Minutes<br>
