@@ -12,11 +12,9 @@ class ExercisesController < ApplicationController
         @exercise = current_user.exercises.new(exercise_params)
 
         if @exercise.save
-            flash[:notice] = "Exercise has been created"
             redirect_to [current_user, @exercise], notice: "Exercise has been created"
         else
-            flash[:alert] = "Exercise has not been created"
-            redirect_to [current_user, @exercise]
+            redirect_to [current_user, @exercise], alert: "Exercise has not been created"
         end
     end
 
